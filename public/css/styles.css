@@ -1,0 +1,51 @@
+:root {
+    --blue: #64C9CF;
+    --beige: #FDE49C;
+    --orange: #FFB740;
+    --brown: #DF711B;
+  }
+
+body{
+    background-color: var(--beige);
+    font-family: 'Poppins', sans-serif; 
+    margin: 0px;
+}
+
+a{
+    color: var(--beige);
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+h1{
+    color: var(--brown);
+    font-family: 'Palette Mosaic', cursive;
+    font-size: 4rem;
+    padding: 1rem;
+    margin-top: 0px;
+}
+
+nav{
+    background-color: var(--blue);
+    display: flex;
+    line-height: 4rem;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+
+.container{
+    margin: 0 auto;
+    position: relative;
+    width: 70%;
+}
+
+/* .flex{
+    display: flex;
+    line-height: 4rem;
+} */
