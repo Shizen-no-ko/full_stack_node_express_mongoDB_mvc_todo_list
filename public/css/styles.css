@@ -20,6 +20,7 @@ a{
     text-decoration: none;
 }
 
+
 h1{
     color: var(--brown);
     font-family: var(--brand-font);
@@ -32,12 +33,21 @@ h2{
     color: var(--brown);
 }
 
+input:focus, textarea:focus {
+    outline-width: 0;
+}
+
+label{
+    font-size: 1.5rem;
+}
+
 nav{
     background-color: var(--blue);
     display: flex;
     line-height: 4rem;
     text-align: center;
 }
+
 
 ul {
     list-style-type: none;
@@ -84,6 +94,7 @@ ul {
 .card h1{
     font-family: var(--standard-font);
     font-size: 3rem;
+    margin-bottom: 10px;
     padding: 0px;
     text-align: center;
 }
@@ -102,4 +113,29 @@ ul {
     position: relative;
     width: 70%;
 }
+
+.form-field{
+    border: 5px solid var(--blue);
+    border-radius: 10px;
+    font-family: var(--standard-font);
+    height: 1.5rem;
+    margin: 10px;
+}
+
+.form-row{
+    line-height: 1.5rem;
+    margin: 20px 10px 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.form-text{
+    height: 5rem;
+}
+
+.paragraph-box button{
+    float:left;
+    margin-right: 5px;
+}
+
 

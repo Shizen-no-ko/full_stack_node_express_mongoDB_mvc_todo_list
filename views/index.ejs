@@ -3,7 +3,11 @@
     <div class="card-container">
         <div class="card">
             <h1>Task Title</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut nulla id augue volutpat posuere. In arcu purus, euismod auctor sollicitudin at, vehicula sollicitudin massa. Donec ac orci diam. Morbi id sapien vitae ex facilisis imperdiet eget sed magna. Cras fringilla tempus tellus ac finibus. Cras sit amet nisi at leo efficitur suscipit sit amet non elit. Vivamus nec velit quis urna accumsan accumsan. Nunc in posuere enim. Curabitur rhoncus tempus lacus, ac dapibus orci ornare ut.  </p>
+            <div class="paragraph-box">
+                <button class="btn"><i class="fas fa-plus"></i></button>
+                <button class="btn"><i class="fas fa-minus"></i></button>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut nulla id augue volutpat posuere. In arcu purus, euismod auctor sollicitudin at, vehicula sollicitudin massa. Donec ac orci diam. Morbi id sapien vitae ex facilisis imperdiet eget sed magna. Cras fringilla tempus tellus ac finibus. Cras sit amet nisi at leo efficitur suscipit sit amet non elit. Vivamus nec velit quis urna accumsan accumsan. Nunc in posuere enim. Curabitur rhoncus tempus lacus, ac dapibus orci ornare ut.  </p>    
+            </div>
             <div class="btn-container">
                 <form>
                     <button class="btn">Delete</button>
@@ -11,11 +15,26 @@
             </div>
         </div>
         <div class="card">
-            <h1>Task Title</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut nulla id augue volutpat posuere. In arcu purus, euismod auctor sollicitudin at, vehicula sollicitudin massa. Donec ac orci diam. Morbi id sapien vitae ex facilisis imperdiet eget sed magna. Cras fringilla tempus tellus ac finibus. Cras sit amet nisi at leo efficitur suscipit sit amet non elit. Vivamus nec velit quis urna accumsan accumsan. Nunc in posuere enim. Curabitur rhoncus tempus lacus, ac dapibus orci ornare ut.  </p>
+            <h1>Create New Task</h1>
+            <form id="create_task">
+                <div class="form-row">
+                    <label>Enter task title</label>
+                    <br>
+                    <input class="form-field" type="text" name="title">
+                </div>
+                <div class="form-row">
+                    <label>Intended completion date</label>
+                    <input class="form-field" type="date" name="date">
+                </div>
+                <div class="form-row">
+                    <label>Task details</label>
+                    <textarea class="form-field form-text" form="create_task" rows=5 cols=50 name="details"></textarea>
+                </div>
+            </form>
+    
             <div class="btn-container">
                 <form>
-                    <button class="btn">Delete</button>
+                    <button class="btn">Create</button>
                 </form>
             </div>
         </div>
