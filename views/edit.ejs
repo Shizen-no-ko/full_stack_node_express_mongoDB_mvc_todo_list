@@ -1,0 +1,31 @@
+<%- include("includes/head.ejs") %>
+<div class="container">
+    <div class="card-container">
+        <div class="card">
+            <h1>Edit Task</h1>
+            <form id="edit_task">
+                <div class="form-row">
+                    <label>Task title</label>
+                    <br>
+                    <input class="form-field" type="text" name="title">
+                </div>
+                <div class="form-row">
+                    <label>Intended completion date</label>
+                    <input class="form-field" type="date" name="date">
+                </div>
+                <div class="form-row">
+                    <label>Task details</label>
+                    <textarea class="form-field form-text" form="create_task" rows=5 cols=50 name="details"></textarea>
+                </div>
+            </form>
+            <div class="btn-container">
+                <form>
+                    <button class="btn">Update</button>
+                    <button class="btn">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<%- include("includes/end.ejs") %>

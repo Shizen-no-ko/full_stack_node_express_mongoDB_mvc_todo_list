@@ -133,6 +133,10 @@ ul {
     height: 5rem;
 }
 
+.hide{
+    display: none;
+}
+
 .paragraph-box button{
     float:left;
     margin-right: 5px;
