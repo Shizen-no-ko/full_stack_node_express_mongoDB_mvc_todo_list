@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/todo', { useNewUrlParser: true, useUnifiedTopology: true });
 const Task = require('./models/task');
 const AddTask = require('./controllers/database/addTask');
 const DeleteTask = require('./controllers/database/deleteTask');

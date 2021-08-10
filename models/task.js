@@ -6,7 +6,7 @@ const taskSchema = new mongoose.Schema({
         required: true
     },
     date: String,
-    description: String
+    details: String
 });
 
 module.exports = mongoose.model("Task", taskSchema);
