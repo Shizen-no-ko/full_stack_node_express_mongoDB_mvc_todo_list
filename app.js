@@ -9,7 +9,8 @@ const Task = require('./models/task');
 const AddTask = require('./controllers/database/addTask');
 const DeleteTask = require('./controllers/database/deleteTask');
 const RenderHome = require('./controllers/database/renderHome');
-
+const GetRegister = require('./controllers/authentication/register');
+const GetLogin = require('./controllers/authentication/login');
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -27,6 +28,20 @@ app.get("/edit", (req, res, next) => {
 app.post("/add", AddTask.addTask);
 
 app.post("/delete", DeleteTask.deleteTask);
+
+app.get("/login", GetLogin.getLogin);
+
+app.get("/register", GetRegister.getRegister);
+
+// app.post("/login", (req, res, next) => {
+
+// };
+
+// app.post("/register", (req, res, next) => {
+
+// };
+
+
 
 app.get("/", RenderHome.renderHome);
 

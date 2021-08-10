@@ -137,6 +137,14 @@ ul {
     display: none;
 }
 
+.menu{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 50%;
+}
+
 .paragraph-box button{
     float:left;
     margin-right: 5px;
