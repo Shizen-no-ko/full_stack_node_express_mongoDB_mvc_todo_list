@@ -37,9 +37,7 @@ app.get("/register", GetRegister.getRegister);
 
 // };
 
-// app.post("/register", (req, res, next) => {
-
-// };
+app.post("/register", GetRegister.postRegister);
 
 
 

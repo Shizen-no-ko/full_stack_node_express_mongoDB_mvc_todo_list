@@ -10,9 +10,8 @@ exports.addTask = (req, res, next) => {
   const newTask = new Task({ title: title, date: date, details: details });
   newTask.save(function (err, newTask) {
     if (err) return console.error(err);
-    console.log("Saved");
     res.redirect("/");
-  })
+  });
 };
 
 
