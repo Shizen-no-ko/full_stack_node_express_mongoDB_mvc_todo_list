@@ -4,6 +4,9 @@ const Task = require('../../models/task');
 
 
 exports.renderHome = (req, res, next) => {
+  if(req.isAuthenticated()){
+    console.log("Authenticated");
+  };
   let t = [];
   Task.find({})
     .then((result) => {

@@ -1,23 +1,54 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('passport');
+// const passportLocalMongoose = require('passport-local-mongoose');
+
+const User = require('./models/user');
+
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/todo', { useNewUrlParser: true, useUnifiedTopology: true });
-const Task = require('./models/task');
+
+// const Task = require('./models/task');
 const AddTask = require('./controllers/database/addTask');
 const DeleteTask = require('./controllers/database/deleteTask');
 const RenderHome = require('./controllers/database/renderHome');
-const GetRegister = require('./controllers/authentication/register');
-const GetLogin = require('./controllers/authentication/login');
+const Register = require('./controllers/authentication/register');
+const Login = require('./controllers/authentication/login');
 
 app.set("view engine", "ejs");
 app.set("views", "views");
 
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
+// app.use(express.json());
 
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// flash functionality
+app.use(function(req, res, next){
+    // if there's a flash message in the session request, make it available in the response
+    res.locals.flash = req.session.flash;
+    // then delete it
+    delete req.session.flash;
+    next();
+  });
+
+mongoose.connect('mongodb://localhost:27017/todoDB', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.set("useCreateIndex", true);
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.get("/edit", (req, res, next) => {
 
@@ -29,15 +60,43 @@ app.post("/add", AddTask.addTask);
 
 app.post("/delete", DeleteTask.deleteTask);
 
-app.get("/login", GetLogin.getLogin);
+app.get("/login", Login.getLogin);
 
-app.get("/register", GetRegister.getRegister);
+app.get("/register", Register.getRegister);
 
-// app.post("/login", (req, res, next) => {
+app.post("/login", Login.postLogin);
 
-// };
+app.post("/register", Register.postRegister);
+// (req, res, next) => {
+    // personName = req.body.name;
+    // username = req.body.username;
+    // password = req.body.password;
+    // console.log(personName);
+    // console.log(username);
+    // console.log(password);
+    // // name:personname, 
+    // // User.register({username:username}, password, (err, user) => {
+    // User.register(new User({username: username, personName: personName}), password, (err, user) => {
+    //     console.log("entered the register middleware")
+    //     if(err){
+    //         console.log(err);
+    //         console.log("went into the error route")
+    //         res.redirect("/register");
+    //     }else{
+    //         console.log("entered the else");
+    //         passport.authenticate("local",  function(err, user, info) {
+    //             console.log("authenticate");
+    //     console.log(err);
+    //     console.log(user);
+    //     console.log(info);
+    //     // console.log(personName);
+    //     // user.personName = personName;
+    //     // console.log(user);
+    //         }) (req, res, next)
+    //     };
+    // });
+// });
 
-app.post("/register", GetRegister.postRegister);
 
 
 

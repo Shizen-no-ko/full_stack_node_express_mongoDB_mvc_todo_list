@@ -3,6 +3,9 @@
         <div class="card-container">
             <div class="card">
                 <h1>Register</h1>
+                <% if ( typeof flash !== 'undefined'){ %>
+                <h2><%= flash.message %></h2>
+                <% }; %>
                 <form action="/register" method="POST" id="register-form">
                     <div class="form-row">
                         <label>Name</label>
@@ -10,7 +13,7 @@
                     </div>
                     <div class="form-row">
                         <label>Email</label>
-                        <input class="form-field" type="email" name="email">
+                        <input class="form-field" type="email" name="username">
                     </div>
                     <div class="form-row">
                         <label>Password</label>

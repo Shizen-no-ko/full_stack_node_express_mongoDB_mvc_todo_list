@@ -1,23 +1,23 @@
 <%- include("includes/head.ejs") %>
-<div class="container">
-    <div class="card-container">
-        <div class="card">
-            <h1>Login</h1>
-            <form id="register-form">
-                <div class="form-row">
-                    <label>Email</label>
-                    <input class="form-field" type="email" name="email">
-                </div>
-                <div class="form-row">
-                    <label>Password</label>
-                    <input class="form-field" type="password" name="password">
-                </div>
-            <div class="btn-container">
-                    <button class="btn">Log me in</button>
-                </div>
+    <div class="container">
+        <div class="card-container">
+            <div class="card">
+                <h1>Login</h1>
+                <form action="/login" method="POST" id="login-form">
+                    <div class="form-row">
+                        <label>Email</label>
+                        <input class="form-field" type="email" name="email">
+                    </div>
+                    <div class="form-row">
+                        <label>Password</label>
+                        <input class="form-field" type="password" name="password">
+                    </div>
+                    <div class="btn-container">
+                        <button class="btn">Log me in</button>
+                    </div>
                 </form>
+            </div>
         </div>
     </div>
-</div>
-    
-<%- include("includes/end.ejs") %>
+
+    <%- include("includes/end.ejs") %>
