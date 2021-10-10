@@ -4,11 +4,11 @@ const Task = require('../../models/task');
 
 
 exports.renderHome = (req, res, next) => {
-  if(req.isAuthenticated()){
-    console.log("Authenticated");
-  };
   let t = [];
-  Task.find({})
+  if(!req.isAuthenticated()){
+     return res.render("index", { pageTitle: "Home", tasks: t });
+  };
+  Task.find({username: req.user.username})
     .then((result) => {
       t = result;
     })
