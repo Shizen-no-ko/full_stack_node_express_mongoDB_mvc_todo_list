@@ -6,7 +6,11 @@ const taskSchema = new mongoose.Schema({
         required: true
     },
     date: String,
-    details: String
+    details: String,
+    username: {
+        type: String,
+        required: true
+    }
 });
 
 module.exports = mongoose.model("Task", taskSchema);

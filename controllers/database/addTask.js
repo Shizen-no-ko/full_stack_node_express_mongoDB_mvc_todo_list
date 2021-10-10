@@ -9,7 +9,8 @@ exports.addTask = (req, res, next) => {
   details = req.body.details;
   if (req.isAuthenticated()){
     console.log('req is authenticated');
-    const newTask = new Task({ title: title, date: date, details: details });
+    console.log(req.user.username);
+    const newTask = new Task({ title: title, date: date, details: details, username: req.user.username });
     newTask.save(function (err, newTask) {
       if (err) return console.error(err);
       res.redirect("/");
