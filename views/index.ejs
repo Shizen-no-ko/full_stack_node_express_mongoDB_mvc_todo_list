@@ -1,4 +1,9 @@
 <%- include("includes/head.ejs") %>
+<% if ( typeof flash !== 'undefined'){ %>
+    <div class="container flash-message">
+        <h2><%= flash.message %></h2>
+    </div>
+    <% }; %>
 <div class="container">
     <div class="card-container">
         <% tasks.forEach(function(task) { %>

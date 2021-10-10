@@ -114,6 +114,10 @@ ul {
     width: 70%;
 }
 
+.flash-message{
+    text-align: center;
+}
+
 .form-field{
     border: 5px solid var(--blue);
     border-radius: 10px;

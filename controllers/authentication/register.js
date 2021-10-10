@@ -20,16 +20,15 @@ const postRegister = async (req, res, next) => {
     username = req.body.username;
     password = req.body.password;
     try {
+        // check if user already exists and handle
         const existUsername = await User.findOne({ username: username });
         if (existUsername) {
             console.log("User already exists");
-
+            // set flash message
             req.session.flash = {
                 type: 'failure',
                 message: 'This email is already registered. Please try another, or login.'
               };
-
-             
             return res.redirect("/register");
         };
     } catch (error) {
@@ -46,15 +45,13 @@ const postRegister = async (req, res, next) => {
         } else {
             passport.authenticate("local", function (err, user, info) {
                 console.log("You have been authenticated");
-
                 console.log('user: ' + user.username + " saved.");
+                // login user directly after registering
                 req.login(user, function (err) {
                     if (err) {
                         console.log(err);
                     };
                 });
-
-
                 res.redirect("/");
             })(req, res, next)
         };
