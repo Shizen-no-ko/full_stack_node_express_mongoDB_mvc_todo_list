@@ -17,6 +17,7 @@ const DeleteTask = require('./controllers/database/deleteTask');
 const RenderHome = require('./controllers/database/renderHome');
 const Register = require('./controllers/authentication/register');
 const Login = require('./controllers/authentication/login');
+const Logout = require('./controllers/authentication/logout');
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -61,6 +62,8 @@ app.post("/add", AddTask.addTask);
 app.post("/delete", DeleteTask.deleteTask);
 
 app.get("/login", Login.getLogin);
+
+app.get("/logout", Logout.getLogout);
 
 app.get("/register", Register.getRegister);
 

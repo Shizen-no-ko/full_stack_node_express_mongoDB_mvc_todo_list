@@ -11,7 +11,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
 const getRegister = (req, res, next) => {
-    res.render("register", { pageTitle: "Register", flash: res.locals.flash });
+    res.render("register", { pageTitle: "Register", flash: res.locals.flash, loggedIn: false });
 };
 
 

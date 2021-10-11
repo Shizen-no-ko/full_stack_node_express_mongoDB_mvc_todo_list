@@ -5,11 +5,11 @@ const User = require('../../models/user');
 
 
 const getLogin = (req, res, next) => {
-    res.render("login", { pageTitle: "Login" });
+    res.render("login", { pageTitle: "Login", loggedIn: false });
 };
 
 const postLogin = (req, res, next) => {
-    
+
     const user = new User({
         username: req.body.username,
         password: req.body.password
