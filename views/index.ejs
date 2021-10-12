@@ -6,10 +6,11 @@
     <% }; %>
 <div class="container">
     <div class="card-container">
-        <% tasks.forEach(function(task) { %>
+        <% tasks.forEach(function(task, index) { %>
         <div class="card">
             <h1><%= task.title %></h1>
             <div class="paragraph-box">
+                <h3><%= index %></h3>
                 <button class="btn"><i class="fas fa-plus"></i></button>
                 <button class="btn"><i class="fas fa-minus"></i></button>
                 <p><%= task.details %></p>

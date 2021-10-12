@@ -11,6 +11,9 @@ exports.renderHome = (req, res, next) => {
   Task.find({username: req.user.username})
     .then((result) => {
       t = result;
+      // sort list of tasks by date
+      t.sort((a, b) => new Date(a.date) - new Date(b.date));
+      // t.forEach((task) => console.log(task.date));
     })
     .then(() => res.render("index", { pageTitle: "Home", tasks: t, loggedIn: true }))
     .catch(err => {
