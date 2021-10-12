@@ -10,11 +10,18 @@
         <div class="card">
             <h1><%= task.title %></h1>
             <div class="paragraph-box">
-                <h3><%= index %></h3>
-                <button class="btn"><i class="fas fa-plus"></i></button>
-                <button class="btn"><i class="fas fa-minus"></i></button>
-                <p><%= task.details %></p>
-                <h3>Completion Date: <%= task.date %></h3>   
+                <div class="btn-container">
+                    <button class="btn" id="plus_<%= index %>" onclick="toggler('<%= index %>' )">Show Details <i class="fas fa-plus">  </i></button>
+                    <button class="btn minus" id="minus_<%= index %>" onclick="toggler('<%= index %>')">Hide Details <i class="fas fa-minus"></i></button>
+                    
+                </div>
+                <div class="btn-container">
+                    <p class="hide" id="details_<%= index %>"><%= task.details %></p>
+                </div>
+                <div class="btn-container">
+                    <h3>Completion Date: <%= task.date %></h3> 
+                </div>
+                  
             </div>
             <div class="btn-container">
                 <form action="/delete" method="post" >
