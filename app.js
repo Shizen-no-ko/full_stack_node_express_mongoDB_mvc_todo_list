@@ -15,9 +15,11 @@ const app = express();
 const AddTask = require('./controllers/database/addTask');
 const DeleteTask = require('./controllers/database/deleteTask');
 const RenderHome = require('./controllers/database/renderHome');
+const Edit = require('./controllers/database/editTask');
 const Register = require('./controllers/authentication/register');
 const Login = require('./controllers/authentication/login');
 const Logout = require('./controllers/authentication/logout');
+
 
 app.set("view engine", "ejs");
 app.set("views", "views");
@@ -46,15 +48,16 @@ app.use(function(req, res, next){
 
 mongoose.connect('mongodb://localhost:27017/todoDB', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set("useCreateIndex", true);
+mongoose.set('useFindAndModify', false);
 
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.get("/edit", (req, res, next) => {
+// app.get("/edit", (req, res, next) => {
 
-    res.render("edit", { pageTitle: "Edit Task" });
-});
+//     res.render("edit", { pageTitle: "Edit Task" });
+// });
 
 
 app.post("/add", AddTask.addTask);
@@ -70,6 +73,10 @@ app.get("/register", Register.getRegister);
 app.post("/login", Login.postLogin);
 
 app.post("/register", Register.postRegister);
+
+app.post("/edit", Edit.postToEdit);
+
+app.post("/update", Edit.updateTask);
 // (req, res, next) => {
     // personName = req.body.name;
     // username = req.body.username;

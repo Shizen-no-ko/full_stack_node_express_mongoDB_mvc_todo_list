@@ -4,9 +4,9 @@ const Task = require('../../models/task');
 
 
 exports.addTask = (req, res, next) => {
-  title = req.body.title;
-  date = req.body.date;
-  details = req.body.details;
+ const title = req.body.title;
+ const date = req.body.date;
+  const details = req.body.details;
   if (req.isAuthenticated()){
     console.log('req is authenticated');
     console.log(req.user.username);
