@@ -1,3 +1,4 @@
+// toggler function for list items
 function toggler(index) {
     var details = document.getElementById("details_" + index);
     details.classList.toggle("show");
@@ -7,7 +8,7 @@ function toggler(index) {
     plus.classList.toggle("hide");
 };
 
-
+// toggler function for create list item form
 function toggleCreate() {
     var createForm = document.getElementById("create_task");
     createForm.classList.toggle("show");
