@@ -3,26 +3,29 @@
         <div class="card-container">
             <div class="card">
                 <h1>Register</h1>
-                <% if ( typeof flash !== 'undefined'){ %>
-                <h2><%= flash.message %></h2>
-                <% }; %>
-                <form action="/register" method="POST" id="register-form">
-                    <div class="form-row">
-                        <label>Name</label>
-                        <input class="form-field" type="text" name="name">
-                    </div>
-                    <div class="form-row">
-                        <label>Email</label>
-                        <input class="form-field" type="email" name="username">
-                    </div>
-                    <div class="form-row">
-                        <label>Password</label>
-                        <input class="form-field" type="password" name="password">
-                    </div>
-                    <div class="btn-container">
-                        <button class="btn">Register</button>
-                    </div>
-                </form>
+                <!-- display any passed flash messages -->
+                <% if ( typeof flash !=='undefined' ){ %>
+                    <h2>
+                        <%= flash.message %>
+                    </h2>
+                    <% }; %>
+                        <form action="/register" method="POST" id="register-form">
+                            <div class="form-row">
+                                <label>Name</label>
+                                <input class="form-field" type="text" name="name">
+                            </div>
+                            <div class="form-row">
+                                <label>Email</label>
+                                <input class="form-field" type="email" name="username">
+                            </div>
+                            <div class="form-row">
+                                <label>Password</label>
+                                <input class="form-field" type="password" name="password">
+                            </div>
+                            <div class="btn-container">
+                                <button class="btn">Register</button>
+                            </div>
+                        </form>
             </div>
         </div>
     </div>

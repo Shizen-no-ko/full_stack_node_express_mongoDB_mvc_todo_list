@@ -8,28 +8,35 @@
     <title>
         <%= pageTitle %>
     </title>
+    <!-- fontawesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-              integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&family=Poppins:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/styles.css" />
-    <script type = "text/javascript" src="..\scripts\toggle.js"></script>  
+    <!-- loads toggler functionality script -->
+    <script type="text/javascript" src="..\scripts\toggle.js"></script>
 </head>
 
 <body>
+    <!-- Page title and navbar -->
     <nav>
         <div class="container">
-            <div><h1>To Do List</h1></div>
+            <div>
+                <h1>To Do List</h1>
+            </div>
             <ul class="menu">
                 <li><a href="/">Home</a></li>
+                <!-- Conditional rendering of menu items according to logged-in status -->
                 <% if(!loggedIn){ %>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
-                <% } else { %>
-                    <li><a href="/logout">Logout</a></li>
-                    <% }; %>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <% } else { %>
+                        <li><a href="/logout">Logout</a></li>
+                        <% }; %>
             </ul>
         </div>
     </nav>
