@@ -1,1 +1,1 @@
-A full stack node/express/mongoDB to do list with passport authentication and mvc structure; which allows users to register/log-in and view, create, edit and update their own personal to-do list.
+A full stack node/express/mongoDB to-do list with passport authentication, mvc structure, toggle-able create task form and toggle-able task details; which allows users to register/log-in and view, create, edit and update their own personal to-do list.
