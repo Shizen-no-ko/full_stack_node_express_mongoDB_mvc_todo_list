@@ -125,6 +125,14 @@ ul {
     /* margin-top: 20px; */
 }
 
+.create_task {
+    display: none;
+}
+
+.create-toggler {
+    margin-top: 15px;
+}
+
 .date {
     color: var(--brown);
 }

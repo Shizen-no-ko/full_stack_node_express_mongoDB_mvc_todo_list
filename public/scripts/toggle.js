@@ -6,3 +6,12 @@ function toggler(index) {
     var plus = document.getElementById("plus_" + index);
     plus.classList.toggle("hide");
 };
+
+
+function toggleCreate() {
+    var createForm = document.getElementById("create_task");
+    createForm.classList.toggle("show");
+    var togglerButton = document.getElementById("plus-minus");
+    togglerButton.classList.toggle("fa-minus");
+    togglerButton.classList.toggle("fa-plus");
+};

@@ -6,6 +6,38 @@
     <% }; %>
 <div class="container">
     <div class="card-container">
+
+
+        <div class="card">
+            <div class="paragraph-box">
+                <!-- <button class="btn"><i class="fas fa-plus"></i></button> -->
+                <button class="btn create-toggler" onclick="toggleCreate()"><i id="plus-minus" class="fas fa-plus"></i></button>
+                <!-- <button class="btn" onclick="toggleCreate()"><i class="fas fa-plus"></i></button> -->
+                <h1>Create New Task</h1>
+                
+            </div>
+            <form id="create_task" class="create_task" action="/add" method="post">
+                <div class="form-row">
+                    <label>Enter task title</label>
+                    <br>
+                    <input class="form-field" type="text" name="title">
+                </div>
+                <div class="form-row">
+                    <label>Intended completion date</label>
+                    <input class="form-field" type="date" name="date">
+                </div>
+                <div class="form-row">
+                    <label>Task details</label>
+                    <textarea class="form-field form-text" form="create_task" rows=5 cols=50 name="details"></textarea>
+                </div>
+            
+            <div class="btn-container">
+                    <button class="btn" type="submit">Create</button>
+                </form>
+            </div>
+        </div>
+
+
         <% tasks.forEach(function(task, index) { %>
         <div class="card">
             <h1><%= task.title %></h1>
@@ -35,33 +67,7 @@
             </div>
         </div>
         <% }) %>
-        <div class="card">
-            <div class="paragraph-box">
-                <!-- <button class="btn"><i class="fas fa-plus"></i></button> -->
-                <button class="btn"><i class="fas fa-minus"></i></button>
-                <h1>Create New Task</h1>
-                
-            </div>
-            <form id="create_task" action="/add" method="post">
-                <div class="form-row">
-                    <label>Enter task title</label>
-                    <br>
-                    <input class="form-field" type="text" name="title">
-                </div>
-                <div class="form-row">
-                    <label>Intended completion date</label>
-                    <input class="form-field" type="date" name="date">
-                </div>
-                <div class="form-row">
-                    <label>Task details</label>
-                    <textarea class="form-field form-text" form="create_task" rows=5 cols=50 name="details"></textarea>
-                </div>
-            
-            <div class="btn-container">
-                    <button class="btn" type="submit">Create</button>
-                </form>
-            </div>
-        </div>
+        
     </div>
 </div>
 <%- include("includes/end.ejs") %>
