@@ -107,6 +107,9 @@ ul {
     justify-content: space-evenly;
     margin: 20px auto;
     width: 500px;
+    animation-name: list-appear;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
 }
 
 .container{
@@ -181,6 +184,15 @@ ul {
 .show {
     display: unset;
 }
+
+@keyframes list-appear {
+    0%   {transform: scale(100%);}
+    25%  {transform: scale(103%)}
+    50%  {transform: scale(97%)}
+    100% {transform: scale(100%)}
+  }
+
+
 
 
 

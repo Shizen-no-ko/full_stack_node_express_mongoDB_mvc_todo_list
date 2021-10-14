@@ -12,7 +12,7 @@ const postToEdit = (req, res, next) => {
             }
             // if task exists render edit route passing task document
             else {
-                return res.render("edit", { pageTitle: "Edit", loggedIn: false, document: task })
+                return res.render("edit", { pageTitle: "Edit", loggedIn: false, document: task, listOwner: req.user.personName })
             }
         })
         .catch(err => {

@@ -9,7 +9,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // get route for registering
 const getRegister = (req, res, next) => {
-    res.render("register", { pageTitle: "Register", flash: res.locals.flash, loggedIn: false });
+    res.render("register", { pageTitle: "Register", flash: res.locals.flash, loggedIn: false, listOwner: "" });
 };
 
 // post route for registering

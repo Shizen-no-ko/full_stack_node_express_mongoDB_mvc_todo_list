@@ -3,7 +3,7 @@ const User = require('../../models/user');
 
 // get route for login
 const getLogin = (req, res, next) => {
-    res.render("login", { pageTitle: "Login", loggedIn: false });
+    res.render("login", { pageTitle: "Login", loggedIn: false, listOwner: "" });
 };
 
 // post route for login
