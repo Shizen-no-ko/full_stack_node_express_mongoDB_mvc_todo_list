@@ -1,73 +1,76 @@
 <%- include("includes/head.ejs") %>
-<% if ( typeof flash !== 'undefined'){ %>
-    <div class="container flash-message">
-        <h2><%= flash.message %></h2>
-    </div>
-    <% }; %>
-<div class="container">
-    <div class="card-container">
-
-
-        <div class="card">
-            <div class="paragraph-box">
-                <!-- <button class="btn"><i class="fas fa-plus"></i></button> -->
-                <button class="btn create-toggler" onclick="toggleCreate()"><i id="plus-minus" class="fas fa-plus"></i></button>
-                <!-- <button class="btn" onclick="toggleCreate()"><i class="fas fa-plus"></i></button> -->
-                <h1>Create New Task</h1>
-                
-            </div>
-            <form id="create_task" class="create_task" action="/add" method="post">
-                <div class="form-row">
-                    <label>Enter task title</label>
-                    <br>
-                    <input class="form-field" type="text" name="title">
-                </div>
-                <div class="form-row">
-                    <label>Intended completion date</label>
-                    <input class="form-field" type="date" name="date">
-                </div>
-                <div class="form-row">
-                    <label>Task details</label>
-                    <textarea class="form-field form-text" form="create_task" rows=5 cols=50 name="details"></textarea>
-                </div>
-            
-            <div class="btn-container">
-                    <button class="btn" type="submit">Create</button>
-                </form>
-            </div>
+    <!-- flash message for login warning -->
+    <% if ( typeof flash !=='undefined' ){ %>
+        <div class="container flash-message">
+            <h2>
+                <%= flash.message %>
+            </h2>
         </div>
-
-
-        <% tasks.forEach(function(task, index) { %>
-        <div class="card">
-            <h1><%= task.title %></h1>
-            <div class="paragraph-box">
-                <div class="btn-container">
-                    <button class="btn" id="plus_<%= index %>" onclick="toggler('<%= index %>' )">Show Details <i class="fas fa-plus">  </i></button>
-                    <button class="btn minus" id="minus_<%= index %>" onclick="toggler('<%= index %>')">Hide Details <i class="fas fa-minus"></i></button>
-                    
+        <% }; %>
+            <div class="container">
+                <div class="card-container">
+                    <!-- render create task form, as hidden, with toggler button -->
+                    <div class="card">
+                        <div class="paragraph-box">
+                            <button class="btn create-toggler" onclick="toggleCreate()"><i id="plus-minus"
+                                    class="fas fa-plus"></i></button>
+                            <h1>Create New Task</h1>
+                        </div>
+                        <form id="create_task" class="create_task" action="/add" method="post">
+                            <div class="form-row">
+                                <label>Enter task title</label>
+                                <br>
+                                <input class="form-field" type="text" name="title">
+                            </div>
+                            <div class="form-row">
+                                <label>Intended completion date</label>
+                                <input class="form-field" type="date" name="date">
+                            </div>
+                            <div class="form-row">
+                                <label>Task details</label>
+                                <textarea class="form-field form-text" form="create_task" rows=5 cols=50
+                                    name="details"></textarea>
+                            </div>
+                            <div class="btn-container">
+                                <button class="btn" type="submit">Create</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="content-container">
-                    <p class="hide" id="details_<%= index %>"><%= task.details %></p>
-                </div>
-                <div class="content-container">
-                    <h3 class="date">Completion Date: <%= task.date %></h3> 
-                </div>
-                  
+                <!-- render each task -->
+                <% tasks.forEach(function(task, index) { %>
+                    <div class="card">
+                        <h1>
+                            <%= task.title %>
+                        </h1>
+                        <div class="paragraph-box">
+                            <div class="btn-container">
+                                <button class="btn" id="plus_<%= index %>" onclick="toggler('<%= index %>' )">Show
+                                    Details <i class="fas fa-plus"> </i></button>
+                                <button class="btn minus" id="minus_<%= index %>" onclick="toggler('<%= index %>')">Hide
+                                    Details <i class="fas fa-minus"></i></button>
+                            </div>
+                            <div class="content-container">
+                                <p class="hide" id="details_<%= index %>">
+                                    <%= task.details %>
+                                </p>
+                            </div>
+                            <div class="content-container">
+                                <h3 class="date">Completion Date: <%= task.date %>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="btn-container">
+                            <form action="/edit" method="post">
+                                <input type="hidden" name="edit" value="<%= task.id %>">
+                                <button class="btn" type="submit">Edit</button>
+                            </form>
+                            <form action="/delete" method="post">
+                                <input type="hidden" name="id" value="<%= task.id %>">
+                                <button class="btn" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                    <% }) %>
             </div>
-            <div class="btn-container">
-                <form action="/edit" method="post" >
-                    <input type="hidden" name="edit" value="<%= task.id %>">
-                    <button class="btn" type="submit">Edit</button>
-                </form>
-                <form action="/delete" method="post" >
-                    <input type="hidden" name="id" value="<%= task.id %>">
-                    <button class="btn" type="submit">Delete</button>
-                </form> 
             </div>
-        </div>
-        <% }) %>
-        
-    </div>
-</div>
-<%- include("includes/end.ejs") %>
+            <%- include("includes/end.ejs") %>

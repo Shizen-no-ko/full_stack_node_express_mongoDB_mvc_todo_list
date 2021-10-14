@@ -3,6 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
+const path = require('path');
+const favicon = require('serve-favicon');
 // const passportLocalMongoose = require('passport-local-mongoose');
 
 const User = require('./models/user');
@@ -27,6 +29,8 @@ app.set("views", "views");
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({extended: true}));
 // app.use(express.json());
+
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.use(session({
     secret: process.env.SECRET,
